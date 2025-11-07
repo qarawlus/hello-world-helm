@@ -1,0 +1,42 @@
+replicaCount: 1
+
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  repository: ghcr.io/OWNER/REPOSITORY
+  tag: "latest"
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+serviceAccount:
+  create: false
+  annotations: {}
+  name: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+podAnnotations: {}
+
+podLabels: {}
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+ingress:
+  enabled: true
+  className: ""
+  annotations: {}
+  hosts:
+    - host: helm.hello-world.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []

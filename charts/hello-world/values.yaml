@@ -4,8 +4,8 @@ nameOverride: ""
 fullnameOverride: ""
 
 image:
-  repository: ghcr.io/OWNER/REPOSITORY
-  tag: "latest"
+  repository: ghcr.io/qarawlus/hello-world-helm
+  tag: "main"
   pullPolicy: IfNotPresent
   pullSecrets: []
 
@@ -33,10 +33,14 @@ affinity: {}
 ingress:
   enabled: true
   className: ""
-  annotations: {}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
   hosts:
     - host: helm.hello-world.local
       paths:
         - path: /
           pathType: Prefix
-  tls: []
+  tls:
+    - hosts:
+        - helm.hello-world.local
+      secretName: ""

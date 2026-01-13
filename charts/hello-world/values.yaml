@@ -34,7 +34,7 @@ ingress:
   enabled: true
   className: ""
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/cluster-issuer: letsencrypt-dev
   hosts:
     - host: helm.hello-world.local
       paths:
